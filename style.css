@@ -1,0 +1,137 @@
+
+body {
+    text-align: center;
+    background: linear-gradient(45deg, #d5f0e7 , #b1e0d1, #b7e1e5, #e2d0e3);
+/*    background: linear-gradient(45deg, #d5f0e7 , #b1e0d1);*/
+    animation: gradientAnimation 15s ease infinite;
+    overflow:scroll;
+    background-size: 400% 400%;
+    font-family: "Poppins", sans-serif;
+}
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+rect {
+    fill:none;
+}
+
+path {
+    fill:white;
+}
+
+header {
+    font-family: "Rubik Dirt", system-ui;
+    margin-top: 20px;
+    font-size: 5vw;
+}
+
+.valid {
+    background-color: #c7eaca;
+    border:1px solid #749077;
+}
+
+.notValid {
+    background-color: #eac7c7;
+    border: 1px solid #9d6868;
+}
+
+.popup {
+    position: absolute;
+/*    opacity: 0.8;*/
+    transition: opacity 0.5s ease;
+    border-radius: 10px;
+    padding:5px;
+    
+}
+
+.popup.hide {
+    opacity: 0;
+}
+
+#map path:hover {
+    fill: #e2e2dc; 
+    cursor: pointer;
+}
+
+#tooltip {
+    position: fixed;
+    background-color: #60605f;
+/*    opacity: 0.9;*/
+    color: white;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 5px;
+    display: none;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top:20px;
+}
+#desc {
+    font-size: 2vw;
+}
+ 
+.btn:hover .btn-slide-show-text1 {
+  margin-left: 65px;
+} 
+ 
+.btn-fill-bottom {
+  border: none;
+  outline: none;
+  background: none;
+  text-align: center;
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.5s ease 0s;
+} 
+ 
+.btn-fill-bottom::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  height: 200px;
+  width: 250px;
+  border-radius: 50%;
+  top: 100%;
+  left: 100%;
+  transition: all 0.7s ease 0s;
+} 
+ 
+.btn-fill-bottom:hover {
+  color: rgb(255, 255, 255);
+} 
+ 
+.btn-fill-bottom:hover::before {
+  top: -40px;
+  left: -40px;
+} 
+ 
+.btn-fill-bottom--black {
+  color: rgb(51, 51, 51);
+  border: 2px solid rgb(51, 51, 51);
+} 
+ 
+.btn-fill-bottom--black::before {
+  background: rgb(51, 51, 51);
+} 
+
+#done {
+    font-family: "Rubik Doodle Shadow", system-ui;
+    font-size: 4vw;
+}
+}

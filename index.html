@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC Neighborhood Quiz</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Dirt&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/be77a95f77.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>Manhattan Match</header>
+    <div class="container" id="desc">
+        <div ><span id="numSoFar">1</span>/<span id="numTotal"></span> - <span id="currNeighb"></span></div>
+        <div id = "timer">:00</div>
+    </div>
+    <svg width="451" height="576" viewBox="0 0 451 576" fill="none" xmlns="http://www.w3.org/2000/svg" id="map">
+        <rect width="451" height="576" fill="#F5F5F5"/>
+        <g id="Frame 2">
+        <rect width="451" height="576" fill="white"/>
+        <path id="Randalls Island" d="M266.963 204.132L270.052 184.438C270.625 183.869 272.108 182.55 273.461 181.826C275.151 180.921 278.013 181.716 279.02 180.466C280.026 179.217 279.302 178.496 278.587 177.508C277.872 176.52 275.629 177.941 274.56 177.904C273.49 177.867 272.94 175.226 273.237 171.276C273.474 168.116 271.561 164.546 270.574 163.156C268.204 162.347 267.364 157.961 267.24 155.87C267.139 153.637 267.215 148.858 268.328 147.613C269.72 146.055 273.005 145.473 275.419 145.289C277.834 145.105 279.802 148.544 281.269 149.451C282.736 150.358 292.756 151.561 295.152 151.911C297.548 152.262 302.351 157.298 303.215 158.612C303.907 159.663 302.435 167.254 301.612 170.919C301.389 171.196 300.667 171.956 299.568 172.775C298.47 173.593 298.813 175.531 299.122 176.398C298.5 179.927 297.158 187.686 296.761 190.498C296.265 194.013 296.894 195.962 296.987 197.891C297.081 199.821 295.009 202.479 293.854 203.402C292.698 204.326 291.446 206.476 291.046 208.764C290.646 211.051 288.06 209.998 285.139 209.362C282.801 208.853 279.354 208.984 277.923 209.113C275.839 209.54 271.227 210.23 269.451 209.569C267.676 208.909 267.053 205.669 266.963 204.132Z" stroke="black" stroke-width="0.942364"/>
+        <path id="Tribeca" d="M183 486L166.5 449H177L204 456V472L207 486H183Z" stroke="black" stroke-width="1.20913"/>
+        <path id="the Upper West Side" d="M135.5 276V198L175.5 199V276H135.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Fort George" d="M131 75L131.5 45.5L167 54L168.5 75H131Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Washington Heights" d="M135.5 85.5C135.5 84.3 129 77 131.5 75H168.5C169.167 78 170.6 84.3 171 85.5C171.4 86.7 176.833 95.3333 179.5 99.5L137 99C136.667 95.1667 135.5 86.7 135.5 85.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Inwood" d="M167 54L131.5 45.5C131.5 43 131.7 37.5 132.5 35.5C133.5 33 135 29.5 138 28.5C141 27.5 143 28.5 146 29C149 29.5 149.5 29.5 153 29.5C156.5 29.5 157 27 158.5 26C160 25 163.5 25.5 166 27C168 28.2 168.5 30.5 168.5 31.5L167 54Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Hamilton Heights" d="M137 116V99L179.5 99.5L195.5 116H137Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Harlem" d="M136 122C137.6 121.6 137.333 117.833 137 116H196L205 125.5V198.5H175.5V165.5H162.5L137 156V143.5C137 139.5 134 137.5 132.5 137C132.333 134.833 132.1 129.7 132.5 126.5C133 122.5 134 122.5 136 122Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Morningside Heights" d="M133 168C133 163.6 135.333 158.167 136.5 156L162.5 165.5H175.5V199L135.5 198C135.167 196.833 134.7 194.2 135.5 193C136.5 191.5 135 188.5 134.5 185.5C134 182.5 133 173.5 133 168Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Lincoln Square" d="M135.5 305V276H175.5V305H135.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Central Park" d="M205 305H175.5V198.5H205V305Z" stroke="black" stroke-width="1.20913"/>
+        <path id="East Harlem" d="M205 228V126C206.5 127.833 209.9 132 211.5 134C213.5 136.5 219.5 141.5 223.5 145C227.5 148.5 242 153.5 244.5 154.5C247 155.5 252.5 165.5 253.5 170C254.5 174.5 253.5 185 253.5 192C253.5 197.6 252.833 212 252.5 218.5C252 219.333 251 221.5 251 223.5V228H205Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Hell&#39;s Kitchen" d="M135.5 338V305H167V362.5H133V345C133 341.4 134.667 338.833 135.5 338Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Yorkville" d="M251 228H219.5V261H263V256.5C263 254.5 264.5 253.5 266 252.5C267.5 251.5 266 245 266 243C266 241 261 237 258 235.5C255.6 234.3 252.333 230 251 228Z" stroke="black" stroke-width="1.20913"/>
+        <path id="the Upper East Side" d="M263 261L256.5 276H205.5V228H219.5V261H263Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Lenox Hill" d="M204.5 305V276H256.5V305H204.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Midtown" d="M175.5 338H167V305.5H221V361.5H189.5V314H175.5V338Z" stroke="black" stroke-width="1.20913"/>
+        <path id="the Theater District" d="M189.5 346V319.5V314H176V338H167.5V346H189.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="the Garment District" d="M167.5 379V346H189.5V379H167.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Chelsea" d="M137 382.5C135.4 380.9 133.667 368.5 133 362.5H167.5V379H189.5L190.5 402H147L141.5 385C140.667 384.833 138.6 384.1 137 382.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="the Meatpacking District" d="M154.5 420.5L147 402H160.5V412.5C160.5 414.9 156.5 418.833 154.5 420.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="the West Village" d="M159.5 433.5L154.5 420.5C156.5 418.5 160.5 414 160.5 412V402H182.5V433.5H159.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Greenwich Village" d="M221 402H182.5V434L190 432H211.5V411.5L222 406.5L221 402Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Midtown South" d="M189.5 379V361.5H221V402H190.5L189.5 379Z" stroke="black" stroke-width="1.20913"/>
+        <path id="SoHo" d="M203.5 450.5V456L182 450.5V433.5L190 432H212L212.5 450.5H203.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Battery Park City" d="M195 513L183 486H194.5L202.5 510L195 513Z" stroke="black" stroke-width="1.20913"/>
+        <path id="NoHo" d="M211.5 411.5V432H224L222.5 406.5L211.5 411.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Little Italy" d="M212.5 450.5L212 432H225V450.5H212.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Chinatown" d="M204 455.5L203.5 450.5H225V472H204V455.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Civic Center" d="M206.442 485.517L206.388 485.217M206.388 485.217L204 472H224.512L225 486H210.349H206.442L206.388 485.217Z" stroke="black" stroke-width="1.20913"/>
+        <path id="the Bowery" d="M236.5 432H225V463L242 471.5L236.5 432Z" stroke="black" stroke-width="1.20913"/>
+        <path id="the Lower East Side" d="M286.5 432H236.5L242.5 472L254 478.5C261.667 472.833 277.6 461.3 280 460.5C283 459.5 288 452.5 289 447.5C289.8 443.5 287.667 435.5 286.5 432Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Two Bridges" d="M225 487.5V463L254 478L239 493.5L225 487.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="the Financial District" d="M225 487.5V486H194.5L202.5 510L208.5 507.5C208.5 508.167 209 510.2 211 513C213 515.8 219.167 517.167 222 517.5L231.5 507.5L239 493.5L225 487.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="the Battery" d="M208.5 508L195 513C197.5 515.667 203 521.3 205 522.5C207.5 524 210 523.5 215 523.5C219 523.5 221.333 519.5 222 517.5C219.667 516.833 214.5 515.3 212.5 514.5C210.5 513.7 209 509.833 208.5 508Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Roosevelt Island" d="M277.127 255.556C276.327 258.756 275.127 269.222 274.627 274.056C274.294 278.889 273.627 289.456 273.627 293.056C273.627 297.556 270.627 302.556 269.627 306.056C268.627 309.556 266.627 318.556 266.127 325.556C265.627 332.556 266.627 341.556 268.627 344.556C270.627 347.556 273.127 343.556 273.627 339.556C274.127 335.556 275.627 328.056 277.127 321.056C278.627 314.056 280.627 303.056 280.627 299.556C280.627 296.056 280.627 288.056 282.627 284.056C284.627 280.056 285.127 270.556 285.627 258.556C286.127 246.556 282.627 249.056 280.627 249.556C278.627 250.056 278.127 251.556 277.127 255.556Z" stroke="black" stroke-width="1.20913"/>
+        <path id="the East Village" d="M258 402.5H221L222.5 406.5L224.5 432H258V402.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Alphabet City" d="M275.5 402.5H258.5V432H286L281.5 423C280.3 420.6 277 408.333 275.5 402.5Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Gramercy Park" d="M242 382H221V402.5H242V382Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Stuyvesant Town" d="M257 382H242V402.5H275.5C275.167 401.667 274.4 399.5 274 397.5C273.5 395 266.5 391 264.5 390C262.9 389.2 258.833 384.333 257 382Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Kips Bay" d="M247 362H221V381.5H257C256.5 380.5 255.1 378 253.5 376C251.9 374 248.5 365.833 247 362Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Murray Hill" d="M250.5 334H221V362H247V352C247 349.6 249.333 339 250.5 334Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Turtle Bay" d="M221 334V305H256.5C255.667 308.333 253.9 315.7 253.5 318.5C253.1 321.3 251.333 330 250.5 334H221Z" stroke="black" stroke-width="1.20913"/>
+        <path id="Hudson Square" d="M166 449L159.5 433.5H182V450.5L177 449H166Z" stroke="black"/>
+        </g>
+    </svg>
+    <div  id="finished" style="display: none;">
+        <div>
+            <div id="done">Done!</div>
+            <div>You got <span id="numCorrect">0</span> correct out of <span class="numTotal"></span> in <span class="myTime"></span>. </div>
+        </div><br>
+        <div id="toCopy">
+            <p>&#9989; First Try: <span id="myGood"></span>/<span class="numTotal"></span></p>   
+            <p>&#128993; Struggled: <span id="myMid"></span>/<span class="numTotal"></span></p>   
+            <p>&#x274C; Failed: <span id="myBad"></span>/<span class="numTotal"></span></p>   
+            <p>&#128336; Time: <span class="myTime"></span></p>    
+        </div>
+        <div class = "container">
+<!--            share and redo button inspiration from https://enjeck.com/btns/-->
+        <span><button id = "redo" class="btn btn-fill-bottom btn-fill-bottom--black"> Start Over </button></span>
+            <span><button id = "share" class="btn btn-fill-bottom btn-fill-bottom--black"> Share </button></span>
+        </div>
+    </div>
+    
+    <textarea id="clipboardTextarea" style="position: absolute; left: -9999px;"></textarea>
+
+</body>
+<!--    idea inspired by https://geographyquiz.app/quiz/new-york-city-manhattan-neighborhoods/161 - no code samples were used-->
+    <script src="script.js"></script>
+</html>
