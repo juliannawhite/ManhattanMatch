@@ -72,7 +72,7 @@ window.onload = function () {
         }
         
         countClicks = 0;
-        if (curr == 3) { // 3 for testing pathIDs.length
+        if (curr == pathIDs.length) { // 3 for testing 
             end();
         }
         if (valid) {
