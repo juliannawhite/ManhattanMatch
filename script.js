@@ -27,17 +27,36 @@ window.onload = function () {
     var screenWidth = window.innerWidth;
     var screenHeight = window.innerHeight;
     var shareButton = document.getElementById('share');
+    var close = document.getElementById("closeModal");
+    var open = document.getElementById("help");
+    var refresh = document.getElementById("refresh");
+    var modal = document.getElementById("modal");
     
     if (screenWidth > 600) {
             createToolTip("Click on <span id='changeName'>" + pathIDs[0] + "</span>");
     }
-    
     
     document.getElementById("numTotal").innerHTML = pathIDs.length;
     allNumTotal.forEach(function(div) {div.textContent = pathIDs.length;});
     NeighbAsked.innerHTML = pathIDs[0];
     document.getElementById('redo').onclick = function() {location.reload();};
     shareButton.addEventListener('click', () => share());
+    open.onclick = openModal;
+    close.onclick = closeModal;
+    refresh.onclick = function() {location.reload();};
+    
+    function openModal() {
+        console.log("open");
+        clearInterval(intervalId);
+        modal.style.display = "block";
+    }
+    
+    function closeModal() {
+        console.log("close");
+        intervalId = setInterval(updateTimer, 1000);
+        modal.style.display = "none";
+    }
+    
 
     
     // Fisher-Yates shuffle algorithm
@@ -73,7 +92,7 @@ window.onload = function () {
             path.style.fill = "#eef4b3";
             numStruggled += 1;
         } else {
-            path.style.fill = "#f2d7b8";
+            path.style.fill = "#eef4b3"; //"#f2d7b8" - if we want to go back to orange - else combine else if and else
             numStruggled += 1;
         } 
     }
@@ -91,6 +110,13 @@ window.onload = function () {
         tooltip.id = 'tooltip';
         tooltip.innerHTML = content;
         document.body.appendChild(tooltip);
+        
+        document.getElementById("top").addEventListener("mouseenter", function() {
+            tooltip.style.visibility = 'hidden';
+        });
+        document.getElementById("top").addEventListener("mouseleave", function() {
+            tooltip.style.visibility = 'visible';
+        });
     }
     
     function updateTooltipContent(content) {
@@ -104,6 +130,7 @@ window.onload = function () {
         clipboardTextarea.select();
         clipboardTextarea.setSelectionRange(0, 99999);
         document.execCommand('copy');
+        clipboardTextarea.blur();
         window.getSelection().removeAllRanges();
         shareButton.textContent = "Copied!";
         setTimeout(function() {

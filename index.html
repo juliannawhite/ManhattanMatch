@@ -20,11 +20,34 @@
       gtag('config', 'G-NFHQFPD80K');
     </script>
 <body>
-    <header>Manhattan Match</header>
-    <div class="container" id="desc">
-        <div><span id="numSoFar">1</span>/<span id="numTotal"></span> - <span id="currNeighb"></span></div>
-        <div id = "timer">:00</div>
+    <div id="top">
+        <header>Manhattan Match</header>
+        <div class="container" id="desc">
+            <div><span id="numSoFar">1</span>/<span id="numTotal"></span> - <span id="currNeighb"></span></div>
+            <div><span id = "timer">:00</span><span id="help"> <i class="fa-solid fa-circle-question"></i></span></div>
+        </div>
     </div>
+    
+    <div id="modal">
+        <div id="helpModal" >
+            <div class="container" style="justify-content: space-between; margin-top:0px;">
+                <button id = "closeModal"><i class="fa-solid fa-circle-xmark"></i></button>
+                
+            </div>
+            <header>Manhattan Match</header>
+            <p>Manhattan Match is a game designed to help learn the different neighborhoods of Manhattan in New York City. Players are presented with a map and have three chances to match the name of the specified neighborhood to its corresponding location on the map. The location will change colors depending on how many tries it took you to get the right answer.</p>
+
+            <p>Please note this is a work in progress. See something wrong? Please fill out <a href="https://forms.gle/PV6TUxJz2NB1Biib9" target="_blank">this form</a> :)</p>
+
+            <p>Good luck!</p>
+            <div style = "text-align: right;">
+                <button id="refresh">Start Over</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    
     <svg width="451" height="576" viewBox="0 0 451 576" fill="none" xmlns="http://www.w3.org/2000/svg" id="map">
         <rect width="451" height="576" fill="#F5F5F5"/>
         <g id="Frame 2">

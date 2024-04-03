@@ -134,4 +134,66 @@ header {
     font-family: "Rubik Doodle Shadow", system-ui;
     font-size: 4vw;
 }
+
+.fa-circle-question {
+    transform: scale(0.6);
+}
+
+#helpModal {
+  background-color: #fefefe; /* White background */
+  margin: 10% auto; /* Center modal vertically and horizontally */
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  max-width: 400px; 
+  text-align: left;
+}
+
+#closeModal {
+    background-color: none;
+    background:none;
+    border: none;
+}
+    
+#modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+#refresh {
+  border: none;
+ color: #fff;
+ background-image: linear-gradient(30deg, #b1e0d1, #e2d0e3);
+ border-radius: 20px;
+/* background-size: 100% auto;*/
+ font-family: inherit;
+ padding: 0.6em 1.5em; 
+}
+
+#refresh:hover {
+ background-position: right center;
+ background-size: 200% auto;
+ -webkit-animation: pulse 2s infinite;
+ animation: pulse512 1.5s infinite;
+}
+
+@keyframes pulse512 {
+ 0% {
+  box-shadow: 0 0 0 0 #05bada66;
+ }
+
+ 70% {
+  box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+ }
+
+ 100% {
+  box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+ }
 }
