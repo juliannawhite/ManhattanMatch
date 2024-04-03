@@ -1,6 +1,7 @@
 window.onload = function () { 
     var map = document.getElementById('map');
-    
+    //KTOWN Harold Square
+    // Flatiron
     // define paths
     var pathIDs = [];
     var paths = map.querySelectorAll('path');
@@ -23,13 +24,20 @@ window.onload = function () {
     var numSoFar = document.getElementById("numSoFar");
     var allNumTotal = document.querySelectorAll('.numTotal');
     var tooltip = document.createElement('div');
-    createToolTip("Click on <span id='changeName'>" + pathIDs[0] + "</span>");
+    var screenWidth = window.innerWidth;
+    var screenHeight = window.innerHeight;
+    var shareButton = document.getElementById('share');
+    
+    if (screenWidth > 600) {
+            createToolTip("Click on <span id='changeName'>" + pathIDs[0] + "</span>");
+    }
+    
     
     document.getElementById("numTotal").innerHTML = pathIDs.length;
     allNumTotal.forEach(function(div) {div.textContent = pathIDs.length;});
     NeighbAsked.innerHTML = pathIDs[0];
     document.getElementById('redo').onclick = function() {location.reload();};
-    document.getElementById('share').addEventListener('click', () => share());
+    shareButton.addEventListener('click', () => share());
 
     
     // Fisher-Yates shuffle algorithm
@@ -43,9 +51,12 @@ window.onload = function () {
     function update(valid) { // 1 = current, 0 == wrong
         curr += 1;
         NeighbAsked.innerHTML = pathIDs[curr];
-        updateTooltipContent(pathIDs[curr]);
+        if (screenWidth > 600) {
+            updateTooltipContent(pathIDs[curr]);
+        }
+        
         countClicks = 0;
-        if (curr == pathIDs.length) {
+        if (curr == pathIDs.length) { // 3 for testing
             end();
         }
         if (valid) {
@@ -94,19 +105,20 @@ window.onload = function () {
         clipboardTextarea.setSelectionRange(0, 99999);
         document.execCommand('copy');
         window.getSelection().removeAllRanges();
-        createToolTip("Copied!");
+        shareButton.textContent = "Copied!";
         setTimeout(function() {
-        document.body.removeChild(tooltip);
-        }, 1500);
+            shareButton.textContent = "Share";
+        }, 2500);
     }
 
     function end() {
         var finished = document.getElementById('finished');
         finished.style.display = "block";
         document.getElementById("desc").style.display = "none";
-        
-        var removeTooltip = document.getElementById("tooltip");
-        removeTooltip.parentNode.removeChild(removeTooltip);
+        if (screenWidth > 600) {
+            var removeTooltip = document.getElementById("tooltip");
+            removeTooltip.parentNode.removeChild(removeTooltip);
+        }
         clearInterval(intervalId);        
         var allTime = document.querySelectorAll('.myTime');
         allTime.forEach(function(div) {
@@ -172,9 +184,6 @@ window.onload = function () {
     document.addEventListener('mousemove', function(event) {
     var mouseX = event.clientX;
     var mouseY = event.clientY;
-        
-    var screenWidth = window.innerWidth;
-    var screenHeight = window.innerHeight;
         
     if (mouseX >= 0 && mouseX <= screenWidth && mouseY >= 0 && mouseY <= screenHeight) {
         tooltip.style.display = 'block';
