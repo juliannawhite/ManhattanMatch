@@ -4,7 +4,7 @@ body {
     background: linear-gradient(45deg, #d5f0e7 , #b1e0d1, #b7e1e5, #e2d0e3);
 /*    background: linear-gradient(45deg, #d5f0e7 , #b1e0d1);*/
     animation: gradientAnimation 15s ease infinite;
-    overflow:scroll;
+/*    overflow:scroll;*/
     background-size: 400% 400%;
     font-family: "Poppins", sans-serif;
 }
@@ -132,7 +132,7 @@ header {
 
 #done {
     font-family: "Rubik Doodle Shadow", system-ui;
-    font-size: 4vw;
+    font-size: 5vw;
 }
 
 .fa-circle-question {
@@ -150,7 +150,7 @@ header {
 }
 
 #closeModal {
-    background-color: none;
+    background-color: black;
     background:none;
     border: none;
 }

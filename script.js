@@ -46,18 +46,15 @@ window.onload = function () {
     refresh.onclick = function() {location.reload();};
     
     function openModal() {
-        console.log("open");
         clearInterval(intervalId);
         modal.style.display = "block";
     }
     
     function closeModal() {
-        console.log("close");
         intervalId = setInterval(updateTimer, 1000);
         modal.style.display = "none";
     }
     
-
     
     // Fisher-Yates shuffle algorithm
     function shuffleArray(array) {
@@ -75,7 +72,7 @@ window.onload = function () {
         }
         
         countClicks = 0;
-        if (curr == pathIDs.length) { // 3 for testing
+        if (curr == 3) { // 3 for testing pathIDs.length
             end();
         }
         if (valid) {
@@ -189,11 +186,11 @@ window.onload = function () {
         if (curr == pathIDs.length) {
             return;
         }
-        countClicks += 1;
         var mouseX = event.clientX - map.getBoundingClientRect().left;
         var mouseY = event.clientY - map.getBoundingClientRect().top;        
         var clickedPath = event.target.closest('path');
         if (!clickedPath) return;
+        countClicks += 1;
         var svgPoint = map.createSVGPoint();
         svgPoint.x = mouseX;
         svgPoint.y = mouseY;
